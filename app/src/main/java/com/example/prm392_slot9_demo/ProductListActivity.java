@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.prm392_slot9_demo.Adapter.ItemListAdapter;
 import com.example.prm392_slot9_demo.DAO.ProductDAO;
 import com.example.prm392_slot9_demo.model.Item;
 import com.example.prm392_slot9_demo.model.Product;
@@ -21,6 +22,8 @@ public class ProductListActivity extends AppCompatActivity {
 
     ListView lvProductListView;
     ProductDAO productDAO;
+    ItemListAdapter itemListAdapter;
+    List<Item> itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +81,6 @@ public class ProductListActivity extends AppCompatActivity {
     private void displayToListViewWithID(List<Product> productList, int id) {
         // Create a list of product titles
         List<Item> itemList = new ArrayList<>();
-        List<String> itemTitles = new ArrayList<>();
 
         for (Product product : productList) {
             if (product.getProductId() == id) {
@@ -87,15 +89,9 @@ public class ProductListActivity extends AppCompatActivity {
         }
 
         if (!itemList.isEmpty()) {
-            for (Item item : itemList) {
-                itemTitles.add(item.getTitle());
-            }
+            itemListAdapter= new ItemListAdapter(itemList, this);
+            lvProductListView.setAdapter(itemListAdapter);
         }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemTitles);
-
-        // Set the adapter to the ListView
-        lvProductListView.setAdapter(adapter);
     }
 
 }
