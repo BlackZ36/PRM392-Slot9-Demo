@@ -4,54 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="5dp"
     android:layout_margin="10dp"
-    android:background="@color/gray">
+    android:background="#DDECDE"
+    android:orientation="horizontal"
+    android:padding="5dp">
 
     <ImageView
         android:id="@+id/itemImage"
         android:layout_width="150dp"
         android:layout_height="match_parent"
+        android:contentDescription="productIMG"
         android:padding="5dp"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="productIMG"/>
-    
+        tools:srcCompat="@tools:sample/avatars" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_gravity="center">
-        
+        android:padding="10dp">
+
         <TextView
+            android:id="@+id/itemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Item Title"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/itemTitle"/>
+            android:textStyle="bold" />
+
         <TextView
-            android:text="SKU: PRODUCT"
-            android:textSize="13sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/itemSKU"
-            android:layout_marginBottom="20dp"/>
-        <TextView
-            android:text="Item Description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="SKU: PRODUCT"
+            android:textSize="13sp" />
+
+        <TextView
             android:id="@+id/itemDescription"
-            android:layout_marginBottom="20dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Item Description" />
+
         <Button
-            android:text="Item Detail"
             android:id="@+id/itemButton"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:background="#4CAF50"
+            android:text="Item Detail" />
 
-        
+
     </LinearLayout>
-    
+
 </LinearLayout>
